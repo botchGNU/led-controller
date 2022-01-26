@@ -1,9 +1,5 @@
 # Control LEDs via ATMega16
 
-[TOC]
-
-## Description
-
 This project was created in order to control the brightness of an LED through the ATMega16 uC. This application is divided into 3 different modes:
 
 - LED brightness controller
@@ -14,7 +10,7 @@ This project was created in order to control the brightness of an LED through th
 
 The main component of this application is the Timer1 functionality built into the ATMega16. This timer repeatetly counts up till his maximum value (1024) has been reached. If the current value matches the one of the OCR1A register, an interrupt is triggered. This signal is called a [phase correct PWM signal](https://atmega32-avr.com/phase-correct-pwm-pulse-width-modulation-mode-avr-microcontroller-timer/). The interrupt calls a special function called `invertLED()` which does exactly what it's name initiates in order to adjust the LEDs frequency. Another red LED can additionally be activated through a seperate button.
 
- ![](/abb1.gif)
+ ![](https://raw.githubusercontent.com/botchGNU/led-controller/main/Documentation/Images/abb1.gif)
 
 The SOS-mode simply emmits a specific sos sequence:
 
@@ -37,7 +33,7 @@ Documentation about this board can be [found here](https://github.com/botchGNU/m
 
 ## Hardware Structure
 
-![](/abb2.png)
+![](https://raw.githubusercontent.com/botchGNU/led-controller/main/Documentation/Images/abb2.png)
 
 
 
@@ -45,7 +41,7 @@ Documentation about this board can be [found here](https://github.com/botchGNU/m
 
 The code was developed in the c-language through Microchip Studio. In order to flash the binaries onto the MEGACARD a special program called HID-Bootflash was used.
 
-![abb3](/abb3.png)
+![abb3](https://raw.githubusercontent.com/botchGNU/led-controller/main/Documentation/Images/abb3.png)
 
 ### Libraries
 
