@@ -72,16 +72,16 @@ Called once by main method in order to determine Timer1 settings
 ````c
 void timerSetup(){
 	
-	OCR1A = 512;                         // set dutycycle to 50% (1024/2)
+	OCR1A = 512;  // set dutycycle to 50% (1024/2)
 
-	TCCR1A |= (1<<COM1A0);					 // Set Timer1 in Phase Correct Mode 10 Bit
+	TCCR1A |= (1<<COM1A0);	// Set Timer1 in Phase Correct Mode 10 Bit
 										 
-	TCCR1A |= ((1<<WGM10)|(1<<WGM11));       // phase correct Mode 
-											 //+ compare-Match OCR1A
-	TCCR1B |= (1<<CS10);					 // prescaler 1
+	TCCR1A |= ((1<<WGM10)|(1<<WGM11)); // phase correct Mode 
+					   //+ compare-Match OCR1A
+	TCCR1B |= (1<<CS10); // prescaler 1
 	
-	TIMSK |= (1<<OCIE1A);  	 // Enable Timer 1 Overflow
-						    // and Compare interrupt
+	TIMSK |= (1<<OCIE1A);  // Enable Timer 1 Overflow
+			       // and Compare interrupt
 	
 }
 ````
@@ -112,7 +112,7 @@ The first part of this method is executed only once in order to set up the ports
 	DDRC = 0xFF;  //LEDs output
 	DDRA = 0x00;  //Set button ports 
 	PORTC = 0x00; //disable LEDs
-    PORTA = 0x0F;
+        PORTA = 0x0F;
 	
 	cli(); //disable interrupts
 	timerSetup(); //execute timer-setup method
@@ -139,12 +139,8 @@ while (1) {
 			if (redLight == 0){redLight = 1;}
 				else{redLight = 0;}
 			_delay_ms(40); //delay in order to prevent
-		}
-		else if ((!(PINA &(1<<PA0))) && (!(PINA &(1<<PA1)))){
-				
-		}
-		 
-		 else if( (!(PINA &(1<<PA2)))){ //SOS-mode
+		} 
+		else if( (!(PINA &(1<<PA2)))){ //SOS-mode
 			OCR1A =6;
 			while(1)
 			{
